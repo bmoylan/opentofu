@@ -175,9 +175,10 @@ func (c Config) Build() (keyprovider.KeyProvider, keyprovider.KeyMeta, error) {
 			Endpoint: c.MSIEndpoint,
 		},
 		StorageAddresses: auth.StorageAddresses{
-			CloudConfig:    cloudConfig,
-			SubscriptionID: stringAttrEnvFallback(c.SubscriptionID, "ARM_SUBSCRIPTION_ID"),
-			TenantID:       stringAttrEnvFallback(c.TenantID, "ARM_TENANT_ID"),
+			CloudConfig:              cloudConfig,
+			DisableInstanceDiscovery: metadataHost != "",
+			SubscriptionID:           stringAttrEnvFallback(c.SubscriptionID, "ARM_SUBSCRIPTION_ID"),
+			TenantID:                 stringAttrEnvFallback(c.TenantID, "ARM_TENANT_ID"),
 		},
 		WorkloadIdentityAuthConfig: auth.WorkloadIdentityAuthConfig{
 			UseAKSWorkloadIdentity: c.UseAKS,

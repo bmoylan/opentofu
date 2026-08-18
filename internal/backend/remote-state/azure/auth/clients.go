@@ -59,13 +59,14 @@ func NewStorageAccountsClient(client *http.Client, authCred azcore.TokenCredenti
 }
 
 type StorageAddresses struct {
-	CloudConfig      cloud.Configuration
-	ResourceGroup    string
-	StorageAccount   string
-	StorageContainer string
-	StorageSuffix    string
-	SubscriptionID   string
-	TenantID         string
+	CloudConfig              cloud.Configuration
+	DisableInstanceDiscovery bool
+	ResourceGroup            string
+	StorageAccount           string
+	StorageContainer         string
+	StorageSuffix            string
+	SubscriptionID           string
+	TenantID                 string
 }
 
 // NewContainerClientWithSharedKeyCredential gets a container client authenticated with
